@@ -1,0 +1,22 @@
+@use '../utilities/' as *;
+
+.main {
+
+    &__logo{
+        margin-inline: auto;
+        margin-block: 50px;
+    }
+}
+
+.bill {
+    background-color: var(--clr-neutral-100);
+    border-radius: rem(16);
+    width: min(100%, rem(920));
+    padding: clampf(24, 920, 48);
+
+    &__head,
+    &__option {
+        @include text-style($color: var(--clr-neutral-500), $ff: B);
+        font-size: clampf(14, 920, 22);
+    }
+}
