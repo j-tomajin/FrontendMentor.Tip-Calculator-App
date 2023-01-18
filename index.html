@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Tip calculator app</title>
 
@@ -15,29 +13,85 @@
 </head>
 <body>
 
-  Bill
+  <!-- MAIN -->
+  <main class="main">
+    <img src="./src/assets/icons/logo.svg" alt="" class="main__logo">
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+    <section class="bill">
+      <div class="bill__container">
+        <h1 class="bill__head">Bill</h1>
+        <input type="number" name="total" id="total-bill" class="input__text-style bill-input">
+      </div>
+      <form action="#" class="bill__tip">
+        <label class="bill__option">Select tip %</label>
+        <fieldset>
+          <legend class="sr-only">Select Tip %</legend>
+          <input type="radio" name="tip" id="tip1" class="bill__radio">
+          <label for="tip1" class="bill__label">5%</label>
 
-  Number of People
+          <input type="radio" name="tip" id="tip2" class="bill__radio">
+          <label for="tip2" class="bill__label">10%</label>
 
-  Tip Amount
-  / person
+          <input type="radio" name="tip" id="tip3" class="bill__radio">
+          <label for="tip3" class="bill__label active-label">15%</label>
 
-  Total
-  / person
+          <input type="radio" name="tip" id="tip4" class="bill__radio">
+          <label for="tip4" class="bill__label">25%</label>
 
-  Reset
+          <input type="radio" name="tip" id="tip5" class="bill__radio">
+          <label for="tip5" class="bill__label">50%</label>
+
+          <input type="number" id="custom" placeholder="CUSTOM" class="input__text-style">
+        </fieldset>
+      </form>
+
+
+      <div class="bill__container">
+        <h2 class="bill__head">Number of People</h2>
+        <span class="error">Can't be zero</span>
+        <input type="number" name="total" id="numberOfPeople" class="input__text-style people">
+      </div>
+
+      <div class="bill__total">
+        <div class="tip-amount">
+          <div class="container">
+            Tip Amount
+            <br>
+            / person
+          </div> 
+          <p class="amount"></p>
+        </div>
+
+        <div class="total">
+          <div class="container">
+            Total
+            <br>
+            / person
+          </div> 
+          <p id="total" class="total-bill"></p>
+        </div>
+
+        <button type="button">Reset</button>
+      </div>
+    </section>
+  </main>
+
   
-  <div class="attribution">
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
