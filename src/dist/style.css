@@ -1,3 +1,23 @@
+.bill__label, .input__text-style {
+  border-radius: 0.3125rem;
+}
+
+.bill__label {
+  color: var(--clr-neutral-200);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.bill__label:hover, .bill .active-label, .input__text-style {
+  color: var(--clr-neutral-600);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.bill__label, .bill .active-label, .input__text-style {
+  font-weight: 700;
+}
+
 :root {
   --clr-primary-100: hsl(172deg, 67%, 45%);
   --clr-neutral-100: hsl(0deg, 0%, 100%);
@@ -49,6 +69,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--clr-neutral-300);
   display: flex;
   flex-direction: column;
 }
@@ -160,6 +181,59 @@ a:not([class]) {
           text-decoration-skip-ink: auto;
 }
 
+.bill {
+  margin-inline: auto;
+}
+.bill__label {
+  text-align: center;
+  background-color: var(--clr-neutral-600);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+.bill__label:hover {
+  background-color: var(--clr-primary-100);
+}
+.bill__radio {
+  display: none;
+}
+.bill .active-label {
+  background-color: var(--clr-primary-100);
+}
+.bill fieldset {
+  border: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.375rem), 1fr));
+  gap: 0.625rem;
+}
+
+.input__text-style {
+  text-align: right;
+  background-color: var(--clr-neutral-200);
+  outline: none;
+  border-color: transparent;
+  padding: 0.625rem;
+  width: 100%;
+}
+.input__text-style::-webkit-inner-spin-button, .input__text-style::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.bill-input {
+  background-image: url("../assets/icons/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 15px;
+}
+
+.people {
+  background-image: url("../assets/icons/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 15px;
+}
+
 footer {
   margin-top: auto;
 }
@@ -171,4 +245,23 @@ footer {
 
 .attribution a {
   color: hsl(228deg, 45%, 44%);
+}
+
+.main__logo {
+  margin-inline: auto;
+  margin-block: 50px;
+}
+
+.bill {
+  background-color: var(--clr-neutral-100);
+  border-radius: 1rem;
+  width: min(100%, 57.5rem);
+  padding: clamp(1.5rem, 0.4678899083rem + 4.4036697248vw, 3rem);
+}
+.bill__head, .bill__option {
+  color: var(--clr-neutral-500);
+  line-height: 1;
+  letter-spacing: 0;
+  font-family: "SpaceMono Bold";
+  font-size: clamp(0.875rem, 0.5309633028rem + 1.4678899083vw, 1.375rem);
 }/*# sourceMappingURL=style.css.map */
