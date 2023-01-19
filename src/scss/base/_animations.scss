@@ -1,1 +1,14 @@
 @use '../utilities/' as *;
+
+.attrAnim {
+    animation: attrAnimation 800ms linear forwards;
+}
+
+@keyframes attrAnimation {
+    100% {
+        transform: translateX(rem(10));
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
