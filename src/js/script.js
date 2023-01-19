@@ -1,4 +1,4 @@
-const percent = document.querySelector('.bill__tip').querySelectorAll('.bill__label')
+const percent = document.querySelectorAll('.bill__label')
 const custom = document.querySelector('#custom')
 
 // tip results
@@ -9,63 +9,87 @@ const total = document.querySelector('.total-bill')
 // user inputs
 const totalBill = document.querySelector('.bill-input')
 const people = document.getElementById('numberOfPeople')
+const overallBill = document.querySelector('.total-amount')
+const error = document.querySelector('.error')
 
 totalBill.addEventListener('input', billInputFun)
 people.addEventListener('input', numOfPeepsFun)
 
-let totalBillVal = '0.0'
-let peopleVal = '1'
+totalBill.value = '0.0'
+people.value = '1'
 
 amount.innerText = '$' + (0.0).toFixed(2)
 total.innerText = '$' + (0.0).toFixed(2)
+overallBill.innerText = '$' + (0.0).toFixed(2)
 
-let tips
+let tipVal = 0.15
+let totalBillVal = 0.0
+let peopleVal = 1
 
-percent.forEach(tip => {
-    tip.addEventListener('click', activeFun)
+percent.forEach(function(val) {
+    val.addEventListener('click', activeFun)
 })
 
 custom.addEventListener('input', customInput)
 
-function activeFun() {
-    percent.forEach(percent => percent.classList.remove('active-label'))
-
-    this.classList.add('active-label')
-    let temp = this.innerText.match(/\d/g)
-    temp = temp.join('')
-    tips = temp / 100
-
-    if(custom.value != '') {
+function activeFun(event) {
+    percent.forEach(function(val) {
+        val.classList.remove('active-label')
         custom.value = ''
-    }
-    calculateTip()
-}
 
-function customInput() {
-    percent.forEach(percent => percent.classList.remove('active-label'))
-
-    tips = custom.value / 100
+        if(event.target.innerText == val.innerText) {
+            val.classList.add('active-label')
+            tipVal = parseFloat(val.innerText)/100
+        }
+    })
     calculateTip()
 }
 
 function billInputFun() {
     totalBillVal = parseFloat(totalBill.value)
-    console.log(totalBillVal)
     calculateTip()
 }
 
 function numOfPeepsFun() {
     peopleVal = parseFloat(people.value)
+
+    if(peopleVal == 0) {
+        error.classList.add('error-display')
+        people.classList.add('error-people')
+    } else {
+        error.classList.remove('error-display')
+        people.classList.remove('error-people')
+        calculateTip()
+    }
+}
+
+function customInput() {
+    tipVal = parseFloat(custom.value / 100)
+    percent.forEach(function(val) {
+        val.classList.remove('active-label')
+    })
+
     calculateTip()
 }
 
 function calculateTip() {
     if(peopleVal >= 1) {
-        let tipAmount = (totalBillVal * tips) / peopleVal
-        let totalAmount = (totalBillVal + tips) / peopleVal
-        console.log(tipAmount)
+        let tipAmount = (totalBillVal * tipVal) / peopleVal
+        let totalAmount = (totalBillVal / peopleVal) + tipAmount
+        let overall = totalAmount * peopleVal
 
         amount.innerText = '$' + tipAmount.toFixed(2)
         total.innerText = '$' + totalAmount.toFixed(2)
+        overallBill.innerText = '$' + overall.toFixed(2)
     }
 }
+
+function reset() {
+    totalBill.value = '0.0'
+    billInputFun()
+    people.value = '1'
+    numOfPeepsFun()
+
+    custom.value = ''
+}
+
