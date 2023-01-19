@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution Repository](https://github.com/j-tomajin/FrontendMentor.Tip-Calculator-App.git)
+- [Live site](https://jpt-tip-calculator-app.netlify.app)
 
 ## My process
 
