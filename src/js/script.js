@@ -90,6 +90,10 @@ function reset() {
     people.value = '1'
     numOfPeepsFun()
 
+    percent.forEach(function(val) {
+        val.classList.remove('active-label')
+    })
+
     custom.value = ''
 }
 
