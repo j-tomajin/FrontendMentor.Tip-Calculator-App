@@ -16,8 +16,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -30,15 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+[My Solution](./design/Solution.png)
 
 ### Links
 
@@ -54,59 +44,56 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- SASS/SCSS
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+What I learned in this project is you can add a function inside a event listener, I always use the const function thingy with the => function. (there's is nothing wrong with the =>  function, I just find this a way cleaner method to write your code). And I also learn how to pass the active state (in a cleaner way). Before I just use a straight forEach loop, but here I used a function
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+const percent = document.querySelectorAll('.bill__label')
+
+percent.forEach(function(val) {
+    val.addEventListener('click', activeFun) //<- HERE
+})
+
+function activeFun(event) {
+    percent.forEach(function(val) {
+        val.classList.remove('active-label')
+        custom.value = ''
+
+        if(event.target.innerText == val.innerText) {
+            val.classList.add('active-label')
+            tipVal = parseFloat(val.innerText)/100
+        }
+    })
+    calculateTip()
 }
+
+// My before passing active state function
+percent.ForEach(tip => {
+  tip.addEventListener('click', () => {
+    percent.forEach(p => p.classList.remove('active-label'))
+
+    this.classList.add('active-label')
+  })
+})
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I still find JavaScript difficult. So I think I will focus more on JS and watch and read a bunch of stuff about how to write JS more easier.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [How to calculate a tip](https://www.youtube.com/watch?v=jIv-tYfE11s) - This helped me how to calculate tip/s and how to split it. The video I watched has a wrong calculation on tips so I watched another.
+- [Frontend Mentor Tip Calculator](https://www.youtube.com/watch?v=etYv-pPfol4) - This is a video of someone doing this challenge. I know how to solve and to do this challenge but I don't know how to approach it so I watched this.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Github - [j-tomajin](https://github.com/j-tomajin)
+- Frontend Mentor - [@AsukalDePapa](https://www.frontendmentor.io/profile/AsukalDePapa)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Thanks to [CodeAgam](https://www.youtube.com/watch?v=etYv-pPfol4)'s video I finished this project. Also thanks to him I learned something new.
