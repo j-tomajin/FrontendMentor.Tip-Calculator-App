@@ -1,1 +1,15 @@
 @use '../utilities/' as *;
+
+.resetBtn {
+    @include text-style($color: var(--clr-neutral-600), $ff: B, $ls: 5px);
+    @extend %border-radius-5px;
+    width: 100%;
+    background-color: var(--clr-primary-100);
+    text-transform: uppercase;
+    padding: rem(12);
+    margin-top: auto;
+
+    &:hover {
+        background-color: hsl(172, 100%, 64%);
+    }
+}
