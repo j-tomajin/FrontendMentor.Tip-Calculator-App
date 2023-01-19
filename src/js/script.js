@@ -93,3 +93,10 @@ function reset() {
     custom.value = ''
 }
 
+// attribution
+const attribution = document.querySelector('.attribution')
+
+setInterval(() => {
+    attribution.classList.add('attrAnim')
+}, 5000)
+
