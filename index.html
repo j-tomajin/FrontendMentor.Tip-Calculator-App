@@ -17,61 +17,67 @@
   <main class="main">
     <img src="./src/assets/icons/logo.svg" alt="" class="main__logo">
 
-    <section class="bill">
+    <section class="bill bill--display">
       <div class="bill__container">
         <h1 class="bill__head">Bill</h1>
         <input type="number" name="total" id="total-bill" class="input__text-style bill-input">
+      
+        <form action="#" class="bill__tip">
+          <label class="bill__option">Select tip %</label>
+          <fieldset>
+            <legend class="sr-only">Select Tip %</legend>
+            <input type="radio" name="tip" id="tip1" class="bill__radio">
+            <label for="tip1" class="bill__label">5%</label>
+
+            <input type="radio" name="tip" id="tip2" class="bill__radio">
+            <label for="tip2" class="bill__label">10%</label>
+
+            <input type="radio" name="tip" id="tip3" class="bill__radio">
+            <label for="tip3" class="bill__label active-label">15%</label>
+
+            <input type="radio" name="tip" id="tip4" class="bill__radio">
+            <label for="tip4" class="bill__label">25%</label>
+
+            <input type="radio" name="tip" id="tip5" class="bill__radio">
+            <label for="tip5" class="bill__label">50%</label>
+
+            <input type="number" id="custom" placeholder="CUSTOM" class="custom-input">
+          </fieldset>
+        </form>
+
+
+        <div class="people-inputs">
+          <h2 class="bill__head">Number of People</h2>
+          <span class="error">Can't be zero</span>
+          <input type="number" name="total" id="numberOfPeople" class="input__text-style people">
+        </div>
       </div>
-      <form action="#" class="bill__tip">
-        <label class="bill__option">Select tip %</label>
-        <fieldset>
-          <legend class="sr-only">Select Tip %</legend>
-          <input type="radio" name="tip" id="tip1" class="bill__radio">
-          <label for="tip1" class="bill__label">5%</label>
 
-          <input type="radio" name="tip" id="tip2" class="bill__radio">
-          <label for="tip2" class="bill__label">10%</label>
-
-          <input type="radio" name="tip" id="tip3" class="bill__radio">
-          <label for="tip3" class="bill__label active-label">15%</label>
-
-          <input type="radio" name="tip" id="tip4" class="bill__radio">
-          <label for="tip4" class="bill__label">25%</label>
-
-          <input type="radio" name="tip" id="tip5" class="bill__radio">
-          <label for="tip5" class="bill__label">50%</label>
-
-          <input type="number" id="custom" placeholder="CUSTOM" class="input__text-style">
-        </fieldset>
-      </form>
-
-
-      <div class="bill__container">
-        <h2 class="bill__head">Number of People</h2>
-        <span class="error">Can't be zero</span>
-        <input type="number" name="total" id="numberOfPeople" class="input__text-style people">
-      </div>
-
-      <div class="bill__total">
-        <div class="tip-amount">
+      <div class="bill__total bill__total--display">
+        <div class="tip-amount flex">
           <div class="container">
             Tip Amount
-            <br>
-            / person
+            <span>/ person</span>
           </div> 
           <p class="amount"></p>
         </div>
 
-        <div class="total">
+        <div class="total flex">
           <div class="container">
             Total
-            <br>
-            / person
+            <span>/ person</span>
           </div> 
           <p id="total" class="total-bill"></p>
         </div>
 
-        <button type="button">Reset</button>
+        <div class="flex">
+          <div class="container">
+            Total
+          </div> 
+          <p class="total-amount"></p>
+        </div>
+
+        <button type="button" class="resetBtn" onclick="reset()">Reset</button>
       </div>
     </section>
   </main>
