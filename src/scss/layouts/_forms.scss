@@ -27,10 +27,11 @@
         background-color: var(--clr-primary-100);
     }
 
-
     fieldset {
         border: 0;
         padding: 0;
+        margin-block: rem(16);
+
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(min(100%, rem(150)), 1fr));
         gap: rem(10);
@@ -44,7 +45,7 @@
     text-align: right;
     background-color: var(--clr-neutral-200);
     outline: none;
-    border-color: transparent;
+    border: 1px solid transparent;
     padding: rem(10);
     width: 100%;
 
@@ -52,9 +53,15 @@
     &::-webkit-outer-spin-button {
         appearance: none;
     }
+
+    transition: border-color .3s ease-in;
+    &:focus {
+        border-color: var(--clr-primary-100);
+    }
 }
 
 .bill-input {
+    margin-bottom: rem(16);
     background: {
         image: url('../assets/icons/icon-dollar.svg');
         repeat: no-repeat;
@@ -64,10 +71,36 @@
 }
 
 .people {
+    transition: border-color .3s ease-in;
     background: {
         image: url('../assets/icons/icon-person.svg');
         repeat: no-repeat;
         position: left;
         position-x: 15px;
     };
+}
+
+.error-people {
+    border-color: hsl(0, 100%, 50%);
+}
+
+.custom-input {
+    @extend %text-style-2;
+    @extend %fw-b;
+    @extend %border-radius-5px;
+    padding-inline: rem(12);
+    text-align: right;
+    background-color: var(--clr-neutral-200);
+    outline: none;
+    border: 1px solid transparent;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        appearance: none;
+    }
+
+    transition: border-color .3s ease-in;
+    &:focus {
+        border-color: var(--clr-primary-100);
+    }
 }
